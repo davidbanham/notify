@@ -17,6 +17,7 @@ func main() {
 	topRouter := http.NewServeMux()
 	topRouter.HandleFunc("/sms", smsHandler)
 	topRouter.HandleFunc("/email", emailHandler)
+	topRouter.HandleFunc("/health", healthHandler)
 
 	recoveredHandler := recoverWrap(topRouter)
 	srv := &http.Server{
