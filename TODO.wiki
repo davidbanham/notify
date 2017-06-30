@@ -1,0 +1,6 @@
+- [ ] Spec compliance
+  - [ ] Return copy of POSTed doc with the defaults filled out
+- [ ] API docs
+  - [ ] Set up GH pages
+  - [ ] Link from README
+- [ ] Add additional endpoint/binary for transport-agnostic notifications
