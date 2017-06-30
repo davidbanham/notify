@@ -22,7 +22,7 @@ func main() {
 	recoveredHandler := recoverWrap(topRouter)
 	srv := &http.Server{
 		Handler:      recoveredHandler,
-		Addr:         ":" + config.PORT,
+		Addr:         ":" + config.Port,
 		WriteTimeout: 15 * time.Second,
 		ReadTimeout:  15 * time.Second,
 	}
@@ -117,7 +117,7 @@ func recoverWrap(h http.Handler) http.Handler {
 				}
 				fmt.Println("UNHANDLED PANIC", err)
 				errText := ""
-				if config.TESTING == "true" {
+				if config.Testing == "true" {
 					errText = err.Error()
 				}
 				errRes(w, 500, errText, err)

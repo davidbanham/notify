@@ -11,7 +11,7 @@ import (
 var sender func(types.SMS) error
 
 func init() {
-	provider := config.NOTIFY_EMAIL_PROVIDER
+	provider := config.EmailProvider
 
 	providers := map[string]bool{
 		"amazon": true,
@@ -36,6 +36,7 @@ func invalid(e types.SMS) error {
 	return errors.New("No valid sms provider configured")
 }
 
+// Send an SMS via the configured provider
 func Send(e types.SMS) error {
 	return sender(e)
 }

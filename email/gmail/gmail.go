@@ -6,9 +6,10 @@ import (
 	"net/smtp"
 )
 
+// Send an email via gmail
 func Send(e types.Email) error {
-	from := config.NOTIFY_EMAIL_FROM
-	pass := config.NOTIFY_EMAIL_SMTP_PASS
+	from := config.EmailFrom
+	pass := config.EmailSMTPPass
 
 	msg := "Return-Path: " + from + "\n" +
 		"From: " + e.From + "\n" +

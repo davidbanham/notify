@@ -8,11 +8,12 @@ import (
 	"github.com/davidbanham/notify/types"
 )
 
+// Send an SMS via Amazon SNS
 func Send(m types.SMS) error {
 	svc := sns.New(
 		session.New(),
 		&aws.Config{
-			Region: aws.String(config.AWS_REGION),
+			Region: aws.String(config.AwsRegion),
 		},
 	)
 

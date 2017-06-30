@@ -5,17 +5,38 @@ import (
 	"os"
 )
 
-var PORT string
-var NOTIFY_EMAIL_PROVIDER string
-var NOTIFY_SMS_PROVIDER string
-var NOTIFY_EMAIL_SMTP_PASS string
-var NOTIFY_EMAIL_FROM string
-var NOTIFY_EMAIL_FROM_NAME string
-var NOTIFY_EMAIL_MANDRILL_KEY string
-var AWS_ACCESS_KEY_ID string
-var AWS_SECRET_ACCESS_KEY string
-var AWS_REGION string
-var TESTING string
+// Port The port to listen on
+var Port string
+
+// EmailProvider The provider to use for email notifications
+var EmailProvider string
+
+// SmsProvider The provider to use for sms notifications
+var SmsProvider string
+
+// EmailSMTPPass The password to use if sending email via SMTP/Gmail
+var EmailSMTPPass string
+
+// EmailFrom The from: address for emails sent
+var EmailFrom string
+
+// EmailFromName The name that email should appear to come from
+var EmailFromName string
+
+// EmailMandrillKey The key to use if sending email via Mandrill
+var EmailMandrillKey string
+
+// AwsAccessKeyID your AWS access key ID
+var AwsAccessKeyID string
+
+// AwsSecretAccessKey your AWS access key
+var AwsSecretAccessKey string
+
+// AwsRegion your AWS access region
+var AwsRegion string
+
+// Testing Whether we are in test mode
+var Testing string
 
 func init() {
 	required_env.Ensure(map[string]string{
@@ -45,18 +66,18 @@ func init() {
 		})
 	}
 
-	PORT = os.Getenv("PORT")
-	NOTIFY_EMAIL_PROVIDER = os.Getenv("NOTIFY_EMAIL_PROVIDER")
-	NOTIFY_SMS_PROVIDER = os.Getenv("NOTIFY_SMS_PROVIDER")
-	NOTIFY_EMAIL_SMTP_PASS = os.Getenv("NOTIFY_EMAIL_SMTP_PASS")
-	NOTIFY_EMAIL_FROM = os.Getenv("NOTIFY_EMAIL_FROM")
-	NOTIFY_EMAIL_FROM_NAME = os.Getenv("NOTIFY_EMAIL_FROM_NAME")
-	AWS_ACCESS_KEY_ID = os.Getenv("AWS_ACCESS_KEY_ID")
-	AWS_SECRET_ACCESS_KEY = os.Getenv("AWS_SECRET_ACCESS_KEY")
-	AWS_REGION = os.Getenv("AWS_REGION")
-	TESTING = os.Getenv("TESTING")
+	Port = os.Getenv("PORT")
+	EmailProvider = os.Getenv("NOTIFY_EMAIL_PROVIDER")
+	SmsProvider = os.Getenv("NOTIFY_SMS_PROVIDER")
+	EmailSMTPPass = os.Getenv("NOTIFY_EMAIL_SMTP_PASS")
+	EmailFrom = os.Getenv("NOTIFY_EMAIL_FROM")
+	EmailFromName = os.Getenv("NOTIFY_EMAIL_FROM_NAME")
+	AwsAccessKeyID = os.Getenv("AWS_ACCESS_KEY_ID")
+	AwsSecretAccessKey = os.Getenv("AWS_SECRET_ACCESS_KEY")
+	AwsRegion = os.Getenv("AWS_REGION")
+	Testing = os.Getenv("TESTING")
 
-	if NOTIFY_EMAIL_FROM_NAME == "" {
-		NOTIFY_EMAIL_FROM_NAME = NOTIFY_EMAIL_FROM
+	if EmailFromName == "" {
+		EmailFromName = EmailFrom
 	}
 }

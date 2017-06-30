@@ -12,7 +12,7 @@ import (
 var sender func(types.Email) error
 
 func init() {
-	provider := config.NOTIFY_EMAIL_PROVIDER
+	provider := config.EmailProvider
 
 	providers := map[string]bool{
 		"gmail":    true,
@@ -41,6 +41,7 @@ func invalid(e types.Email) error {
 	return errors.New("No valid email provider configured")
 }
 
+// Send an email via the configured provider
 func Send(e types.Email) error {
 	return sender(e)
 }

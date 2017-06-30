@@ -9,17 +9,18 @@ import (
 var client *m.Client
 
 func init() {
-	client = m.ClientWithKey(config.NOTIFY_EMAIL_MANDRILL_KEY)
+	client = m.ClientWithKey(config.EmailMandrillKey)
 }
 
+// Send an email via Mandrill
 func Send(e types.Email) error {
 	message := &m.Message{}
 	message.AddRecipient(e.To, e.ToName, "to")
-	message.FromEmail = config.NOTIFY_EMAIL_FROM
-	message.FromName = config.NOTIFY_EMAIL_FROM_NAME
+	message.FromEmail = config.EmailFrom
+	message.FromName = config.EmailFromName
 	message.Subject = e.Subject
-	if e.Body.Html != "" {
-		message.HTML = e.Body.Html
+	if e.Body.HTML != "" {
+		message.HTML = e.Body.HTML
 	} else {
 		message.HTML = e.Body.Text
 	}
