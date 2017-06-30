@@ -15,8 +15,9 @@ import (
 
 func main() {
 	topRouter := http.NewServeMux()
-	topRouter.HandleFunc("/sms", smsHandler)
-	topRouter.HandleFunc("/email", emailHandler)
+	topRouter.HandleFunc("/v1/sms", smsHandler)
+	topRouter.HandleFunc("/v1/email", emailHandler)
+	topRouter.HandleFunc("/v1/health", healthHandler)
 	topRouter.HandleFunc("/health", healthHandler)
 
 	recoveredHandler := recoverWrap(topRouter)
