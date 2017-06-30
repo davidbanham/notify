@@ -14,13 +14,16 @@ var EmailProvider string
 // SmsProvider The provider to use for sms notifications
 var SmsProvider string
 
+// SmsFrom The default From for an SMS
+var SmsFrom string
+
 // EmailSMTPPass The password to use if sending email via SMTP/Gmail
 var EmailSMTPPass string
 
-// EmailFrom The from: address for emails sent
+// EmailFrom The default from: address for emails sent
 var EmailFrom string
 
-// EmailFromName The name that email should appear to come from
+// EmailFromName The default name that email should appear to come from
 var EmailFromName string
 
 // EmailMandrillKey The key to use if sending email via Mandrill
@@ -43,6 +46,7 @@ func init() {
 		"PORT":                  "",
 		"NOTIFY_EMAIL_PROVIDER": "",
 		"NOTIFY_SMS_PROVIDER":   "",
+		"NOTIFY_SMS_FROM":       "",
 	})
 
 	switch os.Getenv("NOTIFY_EMAIL_PROVIDER") {
@@ -69,6 +73,7 @@ func init() {
 	Port = os.Getenv("PORT")
 	EmailProvider = os.Getenv("NOTIFY_EMAIL_PROVIDER")
 	SmsProvider = os.Getenv("NOTIFY_SMS_PROVIDER")
+	SmsFrom = os.Getenv("NOTIFY_SMS_FROM")
 	EmailSMTPPass = os.Getenv("NOTIFY_EMAIL_SMTP_PASS")
 	EmailFrom = os.Getenv("NOTIFY_EMAIL_FROM")
 	EmailFromName = os.Getenv("NOTIFY_EMAIL_FROM_NAME")

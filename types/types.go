@@ -2,11 +2,10 @@ package types
 
 // Email an Email
 type Email struct {
-	Subject string `json:"subject"`
-	Body    Body   `json:"body"`
-	From    string `json:"from"`
-	To      string `json:"to"`
-	ToName  string `json:"toName"`
+	Subject string   `json:"subject"`
+	Body    Body     `json:"body"`
+	From    Namepair `json:"from"`
+	To      Namepair `json:"to"`
 }
 
 // SMS an SMS
@@ -20,4 +19,10 @@ type SMS struct {
 type Body struct {
 	Text string `json:"text"`
 	HTML string `json:"html"`
+}
+
+// Namepair An email address and a name
+type Namepair struct {
+	Address string `json:"address"`
+	Name    string `json:"name"`
 }

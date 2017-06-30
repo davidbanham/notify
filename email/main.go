@@ -43,5 +43,13 @@ func invalid(e types.Email) error {
 
 // Send an email via the configured provider
 func Send(e types.Email) error {
+	if e.From.Name == "" {
+		e.From.Name = config.EmailFromName
+	}
+
+	if e.From.Address == "" {
+		e.From.Address = config.EmailFrom
+	}
+
 	return sender(e)
 }

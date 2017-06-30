@@ -38,5 +38,8 @@ func invalid(e types.SMS) error {
 
 // Send an SMS via the configured provider
 func Send(e types.SMS) error {
+	if e.From == "" {
+		e.From = config.SmsFrom
+	}
 	return sender(e)
 }
