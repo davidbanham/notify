@@ -15,8 +15,8 @@ build: vet
 
 test:
 		PORT=23232 \
-		NOTIFY_EMAIL_PROVIDER=none \
-		NOTIFY_SMS_PROVIDER=none \
+		NOTIFY_EMAIL_PROVIDER=test \
+		NOTIFY_SMS_PROVIDER=test \
 		NOTIFY_SMS_FROM=test \
 		go test -cover `go list ./... | grep -v /vendor/`
 

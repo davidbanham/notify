@@ -18,6 +18,7 @@ func init() {
 		"gmail":    true,
 		"mandrill": true,
 		"none":     true,
+		"test":     true,
 	}
 
 	if !providers[provider] {
@@ -39,6 +40,10 @@ func init() {
 
 func invalid(e types.Email) error {
 	return errors.New("No valid email provider configured")
+}
+
+func test(e types.Email) error {
+	return nil
 }
 
 // Send an email via the configured provider

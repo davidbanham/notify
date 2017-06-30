@@ -16,6 +16,7 @@ func init() {
 	providers := map[string]bool{
 		"amazon": true,
 		"none":   true,
+		"test":   true,
 	}
 
 	if !providers[provider] {
@@ -34,6 +35,10 @@ func init() {
 
 func invalid(e types.SMS) error {
 	return errors.New("No valid sms provider configured")
+}
+
+func test(e types.SMS) error {
+	return nil
 }
 
 // Send an SMS via the configured provider
