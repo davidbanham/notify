@@ -2,40 +2,15 @@ package main
 
 import (
 	"encoding/json"
+	"github.com/davidbanham/notify/config"
 	"github.com/davidbanham/notify/email"
 	"github.com/davidbanham/notify/sms"
 	"github.com/davidbanham/notify/types"
-	"github.com/davidbanham/required_env"
 	"github.com/gorilla/mux"
 	"log"
 	"net/http"
-	"os"
 	"time"
 )
-
-func init() {
-	required_env.Ensure(map[string]string{
-		"PORT":                  "",
-		"NOTIFY_EMAIL_PROVIDER": "",
-		"NOTIFY_SMS_PROVIDER":   "",
-	})
-
-	switch os.Getenv("NOTIFY_EMAIL_PROVIDER") {
-	case "gmail":
-		required_env.Ensure(map[string]string{
-			"NOTIFY_EMAIL_SMTP_PASS": "",
-			"NOTIFY_EMAIL_FROM":      "",
-		})
-	}
-	switch os.Getenv("NOTIFY_SMS_PROVIDER") {
-	case "amazon":
-		required_env.Ensure(map[string]string{
-			"AWS_ACCESS_KEY_ID":     "",
-			"AWS_SECRET_ACCESS_KEY": "",
-			"AWS_REGION":            "",
-		})
-	}
-}
 
 func main() {
 	r := mux.NewRouter()
@@ -48,7 +23,7 @@ func main() {
 
 	srv := &http.Server{
 		Handler:      r,
-		Addr:         ":" + os.Getenv("PORT"),
+		Addr:         ":" + config.PORT,
 		WriteTimeout: 15 * time.Second,
 		ReadTimeout:  15 * time.Second,
 	}

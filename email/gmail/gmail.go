@@ -1,14 +1,14 @@
 package gmail
 
 import (
+	"github.com/davidbanham/notify/config"
 	"github.com/davidbanham/notify/types"
 	"net/smtp"
-	"os"
 )
 
 func Send(e types.Email) error {
-	from := os.Getenv("NOTIFY_EMAIL_FROM")
-	pass := os.Getenv("NOTIFY_EMAIL_SMTP_PASS")
+	from := config.NOTIFY_EMAIL_FROM
+	pass := config.NOTIFY_EMAIL_SMTP_PASS
 
 	msg := "Return-Path: " + from + "\n" +
 		"From: " + e.From + "\n" +

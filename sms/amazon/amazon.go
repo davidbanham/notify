@@ -4,15 +4,15 @@ import (
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/aws/session"
 	"github.com/aws/aws-sdk-go/service/sns"
+	"github.com/davidbanham/notify/config"
 	"github.com/davidbanham/notify/types"
-	"os"
 )
 
 func Send(m types.SMS) error {
 	svc := sns.New(
 		session.New(),
 		&aws.Config{
-			Region: aws.String(os.Getenv("AWS_REGION")),
+			Region: aws.String(config.AWS_REGION),
 		},
 	)
 

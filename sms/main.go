@@ -2,16 +2,16 @@ package sms
 
 import (
 	"errors"
+	"github.com/davidbanham/notify/config"
 	"github.com/davidbanham/notify/sms/amazon"
 	"github.com/davidbanham/notify/types"
 	"log"
-	"os"
 )
 
 var sender func(types.SMS) error
 
 func init() {
-	provider := os.Getenv("NOTIFY_EMAIL_PROVIDER")
+	provider := config.NOTIFY_EMAIL_PROVIDER
 
 	providers := map[string]bool{
 		"amazon": true,
