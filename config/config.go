@@ -10,6 +10,7 @@ var NOTIFY_EMAIL_PROVIDER string
 var NOTIFY_SMS_PROVIDER string
 var NOTIFY_EMAIL_SMTP_PASS string
 var NOTIFY_EMAIL_FROM string
+var NOTIFY_EMAIL_MANDRILL_KEY string
 var AWS_ACCESS_KEY_ID string
 var AWS_SECRET_ACCESS_KEY string
 var AWS_REGION string
@@ -27,6 +28,11 @@ func init() {
 		required_env.Ensure(map[string]string{
 			"NOTIFY_EMAIL_SMTP_PASS": "",
 			"NOTIFY_EMAIL_FROM":      "",
+		})
+	case "mandrill":
+		required_env.Ensure(map[string]string{
+			"NOTIFY_EMAIL_MANDRILL_KEY": "",
+			"NOTIFY_EMAIL_FROM":         "",
 		})
 	}
 	switch os.Getenv("NOTIFY_SMS_PROVIDER") {

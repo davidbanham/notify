@@ -4,6 +4,7 @@ import (
 	"errors"
 	"github.com/davidbanham/notify/config"
 	"github.com/davidbanham/notify/email/gmail"
+	"github.com/davidbanham/notify/email/mandrill"
 	"github.com/davidbanham/notify/types"
 	"log"
 )
@@ -14,8 +15,9 @@ func init() {
 	provider := config.NOTIFY_EMAIL_PROVIDER
 
 	providers := map[string]bool{
-		"gmail": true,
-		"none":  true,
+		"gmail":    true,
+		"mandrill": true,
+		"none":     true,
 	}
 
 	if !providers[provider] {
@@ -25,6 +27,9 @@ func init() {
 	switch provider {
 	case "gmail":
 		sender = gmail.Send
+		return
+	case "mandrill":
+		sender = mandrill.Send
 		return
 	default:
 		sender = invalid
