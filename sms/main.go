@@ -27,6 +27,9 @@ func init() {
 	case "amazon":
 		sender = amazon.Send
 		return
+	case "test":
+		sender = test
+		return
 	default:
 		sender = invalid
 		return
@@ -42,9 +45,9 @@ func test(e types.SMS) error {
 }
 
 // Send an SMS via the configured provider
-func Send(e types.SMS) error {
+func Send(e types.SMS) (types.SMS, error) {
 	if e.From == "" {
 		e.From = config.SmsFrom
 	}
-	return sender(e)
+	return e, sender(e)
 }

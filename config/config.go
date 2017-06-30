@@ -46,7 +46,7 @@ func init() {
 		"PORT":                  "",
 		"NOTIFY_EMAIL_PROVIDER": "",
 		"NOTIFY_SMS_PROVIDER":   "",
-		"NOTIFY_SMS_FROM":       "",
+		"NOTIFY_EMAIL_FROM":     "",
 	})
 
 	switch os.Getenv("NOTIFY_EMAIL_PROVIDER") {
@@ -60,6 +60,10 @@ func init() {
 			"NOTIFY_EMAIL_MANDRILL_KEY": "",
 			"NOTIFY_EMAIL_FROM":         "",
 		})
+	case "test":
+		required_env.Ensure(map[string]string{
+			"NOTIFY_EMAIL_FROM": "",
+		})
 	}
 	switch os.Getenv("NOTIFY_SMS_PROVIDER") {
 	case "amazon":
@@ -67,6 +71,11 @@ func init() {
 			"AWS_ACCESS_KEY_ID":     "",
 			"AWS_SECRET_ACCESS_KEY": "",
 			"AWS_REGION":            "",
+			"NOTIFY_SMS_FROM":       "",
+		})
+	case "test":
+		required_env.Ensure(map[string]string{
+			"NOTIFY_SMS_FROM": "",
 		})
 	}
 

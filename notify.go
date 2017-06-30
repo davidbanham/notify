@@ -41,13 +41,14 @@ func smsHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	err = sms.Send(t)
+	result, err := sms.Send(t)
 	if err != nil {
+		fmt.Println("Error sending SMS", err)
 		errRes(w, http.StatusInternalServerError, "Error sending SMS", err)
 		return
 	}
 
-	successRes(w)
+	json.NewEncoder(w).Encode(result)
 	return
 }
 
@@ -62,13 +63,13 @@ func emailHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	err = email.Send(t)
+	result, err := email.Send(t)
 	if err != nil {
 		errRes(w, http.StatusInternalServerError, "Error sending email", err)
 		return
 	}
 
-	successRes(w)
+	json.NewEncoder(w).Encode(result)
 	return
 }
 
