@@ -1,6 +1,7 @@
 .PHONY: test build
 
 name = notify
+docker_user_id = davidbanham
 
 include .env
 
@@ -25,3 +26,11 @@ install:
 # go get github.com/golang/lint/golint
 lint:
 		golint `go list ./... | grep -v /vendor/`
+
+publish:
+		docker login
+		docker tag $(name)/$(name) $(docker_user_id)/$(name)
+		docker push $(docker_user_id)/$(name)
+
+docker_image_build:
+		docker build -t $(name)/$(name) .
