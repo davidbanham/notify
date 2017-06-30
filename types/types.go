@@ -5,6 +5,7 @@ type Email struct {
 	Body    Body   `json:"body"`
 	From    string `json:"from"`
 	To      string `json:"to"`
+	ToName  string `json:"toName"`
 }
 
 type SMS struct {

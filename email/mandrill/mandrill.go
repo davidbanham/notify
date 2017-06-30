@@ -14,9 +14,9 @@ func init() {
 
 func Send(e types.Email) error {
 	message := &m.Message{}
-	message.AddRecipient(e.To, e.To, "to")
+	message.AddRecipient(e.To, e.ToName, "to")
 	message.FromEmail = config.NOTIFY_EMAIL_FROM
-	message.FromName = config.NOTIFY_EMAIL_FROM
+	message.FromName = config.NOTIFY_EMAIL_FROM_NAME
 	message.Subject = e.Subject
 	if e.Body.Html != "" {
 		message.HTML = e.Body.Html
