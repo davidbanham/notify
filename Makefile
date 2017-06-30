@@ -27,10 +27,9 @@ install:
 lint:
 		golint `go list ./... | grep -v /vendor/`
 
-publish:
-		docker login
+publish: docker_image_build
 		docker tag $(name)/$(name) $(docker_user_id)/$(name)
 		docker push $(docker_user_id)/$(name)
 
-docker_image_build:
+docker_image_build: test build
 		docker build -t $(name)/$(name) .
