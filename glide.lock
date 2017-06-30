@@ -1,5 +1,5 @@
-hash: 869e3aa3ff89d6d866ec6ac4773feeaa2ee50fdd72d800f346a9191f070b2ce5
-updated: 2017-06-30T10:57:09.910833582+10:00
+hash: d211aa924352c7dd804b099a5462fc838939723a4f1c1d21ac631eb475b9a1f3
+updated: 2017-06-30T12:12:39.301766944+10:00
 imports:
 - name: github.com/aws/aws-sdk-go
   version: f9684fc1d5bd49f51bf61afe6fb4059fbb9060d1
@@ -32,10 +32,6 @@ imports:
   version: a84628a4c24414ddb921e4a100dc6656d312ce37
 - name: github.com/go-ini/ini
   version: cf53f9204df4fbdd7ec4164b57fa6184ba168292
-- name: github.com/gorilla/context
-  version: aed02d124ae4a0e94fea4541c8effd05bf0c8296
-- name: github.com/gorilla/mux
-  version: bcd8bc72b08df0f70df986b97f95590779502d31
 - name: github.com/jmespath/go-jmespath
   version: bd40a432e4c76585ef6b72d3fd96fb9b6dc7b68d
 testImports: []

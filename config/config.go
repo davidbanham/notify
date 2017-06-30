@@ -13,6 +13,7 @@ var NOTIFY_EMAIL_FROM string
 var AWS_ACCESS_KEY_ID string
 var AWS_SECRET_ACCESS_KEY string
 var AWS_REGION string
+var TESTING string
 
 func init() {
 	required_env.Ensure(map[string]string{
@@ -45,4 +46,5 @@ func init() {
 	AWS_ACCESS_KEY_ID = os.Getenv("AWS_ACCESS_KEY_ID")
 	AWS_SECRET_ACCESS_KEY = os.Getenv("AWS_SECRET_ACCESS_KEY")
 	AWS_REGION = os.Getenv("AWS_REGION")
+	TESTING = os.Getenv("TESTING")
 }
