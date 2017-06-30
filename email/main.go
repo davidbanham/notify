@@ -2,8 +2,8 @@ package email
 
 import (
 	"errors"
-	"github.com/prismatik/notify/email/gmail"
-	"github.com/prismatik/notify/types"
+	"github.com/davidbanham/notify/email/gmail"
+	"github.com/davidbanham/notify/types"
 	"os"
 )
 

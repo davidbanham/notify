@@ -37,6 +37,6 @@ imports:
   version: bd40a432e4c76585ef6b72d3fd96fb9b6dc7b68d
 - name: github.com/joho/godotenv
   version: 4ed13390c0acd2ff4e371e64d8b97c8954138243
-- name: github.com/prismatik/dotenv_safe
+- name: github.com/davidbanham/dotenv_safe
   version: a9492fccf36661d5b4b68efee23b07e03de3f644
 testImports: []

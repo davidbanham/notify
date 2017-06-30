@@ -2,8 +2,8 @@ package sms
 
 import (
 	"errors"
-	"github.com/prismatik/notify/sms/amazon"
-	"github.com/prismatik/notify/types"
+	"github.com/davidbanham/notify/sms/amazon"
+	"github.com/davidbanham/notify/types"
 	"os"
 )
 

@@ -2,11 +2,11 @@ package main
 
 import (
 	"encoding/json"
+	"github.com/davidbanham/dotenv_safe"
+	"github.com/davidbanham/notify/email"
+	"github.com/davidbanham/notify/sms"
+	"github.com/davidbanham/notify/types"
 	"github.com/gorilla/mux"
-	"github.com/prismatik/dotenv_safe"
-	"github.com/prismatik/notify/email"
-	"github.com/prismatik/notify/sms"
-	"github.com/prismatik/notify/types"
 	"log"
 	"net/http"
 	"os"

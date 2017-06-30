@@ -1,7 +1,7 @@
 package gmail
 
 import (
-	"github.com/prismatik/notify/types"
+	"github.com/davidbanham/notify/types"
 	"net/smtp"
 	"os"
 )

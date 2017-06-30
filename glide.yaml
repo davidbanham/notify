@@ -1,4 +1,4 @@
-package: github.com/prismatik/notify
+package: github.com/davidbanham/notify
 import:
 - package: github.com/aws/aws-sdk-go
   version: ^1.3.0
@@ -8,5 +8,5 @@ import:
   - service/sns
 - package: github.com/gorilla/mux
   version: ^1.1.0
-- package: github.com/prismatik/dotenv_safe
+- package: github.com/davidbanham/dotenv_safe
   version: ^1.0.0
