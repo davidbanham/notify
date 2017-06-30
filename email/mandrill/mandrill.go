@@ -18,7 +18,11 @@ func Send(e types.Email) error {
 	message.FromEmail = config.NOTIFY_EMAIL_FROM
 	message.FromName = config.NOTIFY_EMAIL_FROM
 	message.Subject = e.Subject
-	message.HTML = e.Body.Html
+	if e.Body.Html != "" {
+		message.HTML = e.Body.Html
+	} else {
+		message.HTML = e.Body.Text
+	}
 	message.Text = e.Body.Text
 
 	_, err := client.MessagesSend(message)
