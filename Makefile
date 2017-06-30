@@ -17,3 +17,6 @@ test:
 		NOTIFY_EMAIL_PROVIDER=none \
 		NOTIFY_SMS_PROVIDER=none \
 		go test -cover `go list ./... | grep -v /vendor/`
+
+install:
+		glide install
