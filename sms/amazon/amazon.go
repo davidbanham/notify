@@ -1,4 +1,4 @@
-package amazonSms
+package amazon
 
 import (
 	"github.com/aws/aws-sdk-go/aws"

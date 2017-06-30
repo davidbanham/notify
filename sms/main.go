@@ -4,17 +4,38 @@ import (
 	"errors"
 	"github.com/davidbanham/notify/sms/amazon"
 	"github.com/davidbanham/notify/types"
+	"log"
 	"os"
 )
 
+var sender func(types.SMS) error
+
 func init() {
+	provider := os.Getenv("NOTIFY_EMAIL_PROVIDER")
+
+	providers := map[string]bool{
+		"amazon": true,
+		"none":   true,
+	}
+
+	if !providers[provider] {
+		log.Fatal("Invalid sms provider specified", provider, "valid providers are", providers)
+	}
+
+	switch provider {
+	case "amazon":
+		sender = amazon.Send
+		return
+	default:
+		sender = invalid
+		return
+	}
 }
 
-func Send(m types.SMS) error {
-	switch os.Getenv("NOTIFY_SMS_PROVIDER") {
-	case "amazon":
-		return amazonSms.Send(m)
-	default:
-		return errors.New("No valid sms provider configured")
-	}
+func invalid(e types.SMS) error {
+	return errors.New("No valid sms provider configured")
+}
+
+func Send(e types.SMS) error {
+	return sender(e)
 }

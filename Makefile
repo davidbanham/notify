@@ -13,4 +13,7 @@ build: vet
 		CGO_ENABLED=0 go build -o ./bin/$(name) -a -installsuffix cgo -ldflags '-s' .
 
 test:
+		PORT=23232 \
+		NOTIFY_EMAIL_PROVIDER=none \
+		NOTIFY_SMS_PROVIDER=none \
 		go test -cover `go list ./... | grep -v /vendor/`

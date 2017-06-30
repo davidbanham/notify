@@ -40,10 +40,10 @@ func init() {
 func main() {
 	r := mux.NewRouter()
 
-	r.HandleFunc("/sms", SmsHandler).
+	r.HandleFunc("/sms", smsHandler).
 		Methods("POST")
 
-	r.HandleFunc("/email", EmailHandler).
+	r.HandleFunc("/email", emailHandler).
 		Methods("POST")
 
 	srv := &http.Server{
@@ -55,7 +55,7 @@ func main() {
 	log.Fatal(srv.ListenAndServe())
 }
 
-func SmsHandler(w http.ResponseWriter, r *http.Request) {
+func smsHandler(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
 	decoder := json.NewDecoder(r.Body)
 	var t types.SMS
@@ -76,7 +76,7 @@ func SmsHandler(w http.ResponseWriter, r *http.Request) {
 	return
 }
 
-func EmailHandler(w http.ResponseWriter, r *http.Request) {
+func emailHandler(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
 	decoder := json.NewDecoder(r.Body)
 	var t types.Email
@@ -93,6 +93,11 @@ func EmailHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
+	successRes(w)
+	return
+}
+
+func healthHandler(w http.ResponseWriter, r *http.Request) {
 	successRes(w)
 	return
 }
