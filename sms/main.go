@@ -19,7 +19,7 @@ func init() {
 	}
 
 	if !providers[provider] {
-		log.Fatal("Invalid sms provider specified", provider, "valid providers are", providers)
+		log.Fatal("Invalid sms provider specified ", provider, " valid providers are ", providers)
 	}
 
 	switch provider {

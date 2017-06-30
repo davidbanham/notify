@@ -21,7 +21,7 @@ func init() {
 	}
 
 	if !providers[provider] {
-		log.Fatal("Invalid email provider specified", provider, "valid providers are", providers)
+		log.Fatal("Invalid email provider specified ", provider, " valid providers are ", providers)
 	}
 
 	switch provider {
