@@ -1,5 +1,8 @@
 # Notify
 
+[![GoDoc](https://godoc.org/github.com/davidbanham/notify?status.svg)](https://godoc.org/github.com/davidbanham/notify)
+[![Go Report Card](https://goreportcard.com/badge/github.com/davidbanham/notify)](https://goreportcard.com/report/github.com/davidbanham/notify)
+
 Notify is a notifications microservice. It currently supports the following mechanisms and providers:
 
 1. Email
