@@ -9,7 +9,7 @@ services:
     ports:
      - "3000:3000"
     volumes:
-      - .:/go/src/notify
+      - .:/go/src/github.com/davidbanham/notify
       - .:/go/src/app
   prodtest:
     build: .
