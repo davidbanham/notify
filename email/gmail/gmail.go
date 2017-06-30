@@ -14,7 +14,7 @@ func Send(e types.Email) error {
 		"From: " + e.From + "\n" +
 		"To: " + e.To + "\n" +
 		"Subject: " + e.Subject + "\n\n" +
-		e.Body
+		e.Body.Text
 
 	return smtp.SendMail("smtp.gmail.com:587",
 		smtp.PlainAuth("", from, pass, "smtp.gmail.com"),
