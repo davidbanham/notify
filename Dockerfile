@@ -1,12 +1,5 @@
-FROM golang:1
+FROM scratch
 
-RUN curl https://glide.sh/get | sh
-ADD . /go/src/github.com/davidbanham/notify
+ADD ./bin/notify /app
 
-WORKDIR /go/src/github.com/davidbanham/notify
-
-RUN glide install
-RUN go install github.com/davidbanham/notify
-RUN touch .env
-
-CMD /go/bin/notify
+ENTRYPOINT ["/app"]

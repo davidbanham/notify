@@ -2,10 +2,10 @@ package main
 
 import (
 	"encoding/json"
-	"github.com/davidbanham/dotenv_safe"
 	"github.com/davidbanham/notify/email"
 	"github.com/davidbanham/notify/sms"
 	"github.com/davidbanham/notify/types"
+	"github.com/davidbanham/required_env"
 	"github.com/gorilla/mux"
 	"log"
 	"net/http"
@@ -14,19 +14,25 @@ import (
 )
 
 func init() {
-	dotenv_safe.Load()
+	required_env.Ensure(map[string]string{
+		"PORT":                  "",
+		"NOTIFY_EMAIL_PROVIDER": "",
+		"NOTIFY_SMS_PROVIDER":   "",
+	})
+
 	switch os.Getenv("NOTIFY_EMAIL_PROVIDER") {
 	case "gmail":
-		dotenv_safe.LoadMany(dotenv_safe.Config{
-			Envs:     []string{},
-			Examples: []string{"example.gmail.env"},
+		required_env.Ensure(map[string]string{
+			"NOTIFY_EMAIL_SMTP_PASS": "",
+			"NOTIFY_EMAIL_FROM":      "",
 		})
 	}
 	switch os.Getenv("NOTIFY_SMS_PROVIDER") {
 	case "amazon":
-		dotenv_safe.LoadMany(dotenv_safe.Config{
-			Envs:     []string{},
-			Examples: []string{"example.amazon_sms.env"},
+		required_env.Ensure(map[string]string{
+			"AWS_ACCESS_KEY_ID":     "",
+			"AWS_SECRET_ACCESS_KEY": "",
+			"AWS_REGION":            "",
 		})
 	}
 }

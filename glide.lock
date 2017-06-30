@@ -1,25 +1,26 @@
-hash: 87fa9145c54bd13eabf2bf5c15d22c5a8e5e0f4ffc4feced022c3bb4e41b3a84
-updated: 2016-08-04T22:20:27.841437084+10:00
+hash: 869e3aa3ff89d6d866ec6ac4773feeaa2ee50fdd72d800f346a9191f070b2ce5
+updated: 2017-06-30T10:57:09.910833582+10:00
 imports:
 - name: github.com/aws/aws-sdk-go
-  version: eb0af7afd2cea3310a21a13e1868644991c5af92
+  version: f9684fc1d5bd49f51bf61afe6fb4059fbb9060d1
   subpackages:
   - aws
   - aws/session
   - service/sns
   - aws/awserr
   - aws/credentials
+  - aws/endpoints
   - aws/client
   - aws/corehandlers
   - aws/credentials/stscreds
   - aws/defaults
   - aws/request
-  - private/endpoints
   - aws/awsutil
   - aws/client/metadata
   - aws/signer/v4
   - private/protocol
   - private/protocol/query
+  - internal/shareddefaults
   - service/sts
   - aws/credentials/ec2rolecreds
   - aws/credentials/endpointcreds
@@ -27,16 +28,14 @@ imports:
   - private/protocol/rest
   - private/protocol/query/queryutil
   - private/protocol/xml/xmlutil
+- name: github.com/davidbanham/required_env
+  version: a84628a4c24414ddb921e4a100dc6656d312ce37
 - name: github.com/go-ini/ini
   version: cf53f9204df4fbdd7ec4164b57fa6184ba168292
 - name: github.com/gorilla/context
   version: aed02d124ae4a0e94fea4541c8effd05bf0c8296
 - name: github.com/gorilla/mux
-  version: 0eeaf8392f5b04950925b8a69fe70f110fa7cbfc
+  version: bcd8bc72b08df0f70df986b97f95590779502d31
 - name: github.com/jmespath/go-jmespath
   version: bd40a432e4c76585ef6b72d3fd96fb9b6dc7b68d
-- name: github.com/joho/godotenv
-  version: 4ed13390c0acd2ff4e371e64d8b97c8954138243
-- name: github.com/davidbanham/dotenv_safe
-  version: a9492fccf36661d5b4b68efee23b07e03de3f644
 testImports: []
