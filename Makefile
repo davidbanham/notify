@@ -1,4 +1,4 @@
-.PHONY: test build
+.PHONY: test build docs
 
 name = notify
 docker_user_id = davidbanham
@@ -33,3 +33,6 @@ publish: docker_image_build
 
 docker_image_build: test build
 		docker build -t $(name)/$(name) .
+
+docs:
+		cd api_documentation && npm run build && rm -r ../docs/api_docs && mv build ../docs/api_docs
