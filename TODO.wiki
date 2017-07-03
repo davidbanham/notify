@@ -1,6 +1,8 @@
 - [X] Spec compliance
   - [X] Return copy of POSTed doc with the defaults filled out
-- [X] API docs
+- [o] API docs
   - [X] Set up GH pages
   - [X] Link from README
-- [ ] Add additional endpoint/binary for transport-agnostic notifications
+- [ ] Phase 2
+  - [ ] Add additional endpoint/binary for transport-agnostic notifications
+  - [ ] Add user model with preferences for notification types
