@@ -11,7 +11,7 @@ import (
 var sender func(types.SMS) error
 
 func init() {
-	provider := config.EmailProvider
+	provider := config.SmsProvider
 
 	providers := map[string]bool{
 		"amazon": true,
