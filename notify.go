@@ -2,7 +2,6 @@ package main
 
 import (
 	"encoding/json"
-	"errors"
 	"fmt"
 	"github.com/davidbanham/notify/config"
 	"github.com/davidbanham/notify/email"
@@ -20,9 +19,11 @@ func main() {
 	topRouter.HandleFunc("/v1/health", healthHandler)
 	topRouter.HandleFunc("/health", healthHandler)
 
-	recoveredHandler := recoverWrap(topRouter)
+	handler := recoverWrap(topRouter)
+	handler = authWrap(handler)
+
 	srv := &http.Server{
-		Handler:      recoveredHandler,
+		Handler:      handler,
 		Addr:         ":" + config.Port,
 		WriteTimeout: 15 * time.Second,
 		ReadTimeout:  15 * time.Second,
@@ -101,30 +102,4 @@ type res struct {
 	Success bool   `json:"success"`
 	Message string `json:"message"`
 	Error   error  `json:"error"`
-}
-
-func recoverWrap(h http.Handler) http.Handler {
-	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-		var err error
-		defer func() {
-			r := recover()
-			if r != nil {
-				switch t := r.(type) {
-				case string:
-					err = errors.New(t)
-				case error:
-					err = t
-				default:
-					err = errors.New("Unknown error")
-				}
-				fmt.Println("UNHANDLED PANIC", err)
-				errText := ""
-				if config.Testing == "true" {
-					errText = err.Error()
-				}
-				errRes(w, 500, errText, err)
-			}
-		}()
-		h.ServeHTTP(w, r)
-	})
 }

@@ -19,6 +19,7 @@ test:
 		NOTIFY_SMS_PROVIDER=test \
 		NOTIFY_SMS_FROM=test \
 		NOTIFY_EMAIL_FROM=test@example.com \
+		AUTH_SECRET=loltestsecret \
 		go test -cover `go list ./... | grep -v /vendor/`
 
 install:

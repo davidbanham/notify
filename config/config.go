@@ -41,12 +41,19 @@ var AwsRegion string
 // Testing Whether we are in test mode
 var Testing string
 
+// DisableAuth Whether we should disable the token auth
+var DisableAuth bool
+
+// AuthSecret The shared secret API key
+var AuthSecret string
+
 func init() {
 	required_env.Ensure(map[string]string{
 		"PORT":                  "",
 		"NOTIFY_EMAIL_PROVIDER": "",
 		"NOTIFY_SMS_PROVIDER":   "",
 		"NOTIFY_EMAIL_FROM":     "",
+		"AUTH_SECRET":           "",
 	})
 
 	switch os.Getenv("NOTIFY_EMAIL_PROVIDER") {
@@ -93,5 +100,11 @@ func init() {
 
 	if EmailFromName == "" {
 		EmailFromName = EmailFrom
+	}
+
+	if os.Getenv("DISABLE_AUTH") == "true" {
+		DisableAuth = true
+	} else {
+		DisableAuth = false
 	}
 }

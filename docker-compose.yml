@@ -5,6 +5,10 @@ services:
     env_file: ./.env
     environment:
       - PORT=3001
+      - AUTH_SECRET=loltestsecret
+      - NOTIFY_EMAIL_FROM=test@example.com
+      - NOTIFY_SMS_FROM=test
+      - DISABLE_AUTH=true
     command: gin
     ports:
      - "3000:3000"
