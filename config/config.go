@@ -93,6 +93,7 @@ func init() {
 	EmailSMTPPass = os.Getenv("NOTIFY_EMAIL_SMTP_PASS")
 	EmailFrom = os.Getenv("NOTIFY_EMAIL_FROM")
 	EmailFromName = os.Getenv("NOTIFY_EMAIL_FROM_NAME")
+	EmailMandrillKey = os.Getenv("NOTIFY_EMAIL_MANDRILL_KEY")
 	AwsAccessKeyID = os.Getenv("AWS_ACCESS_KEY_ID")
 	AwsSecretAccessKey = os.Getenv("AWS_SECRET_ACCESS_KEY")
 	AwsRegion = os.Getenv("AWS_REGION")
