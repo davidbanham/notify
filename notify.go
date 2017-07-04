@@ -7,8 +7,10 @@ import (
 	"github.com/davidbanham/notify/email"
 	"github.com/davidbanham/notify/sms"
 	"github.com/davidbanham/notify/types"
+	"github.com/gorilla/handlers"
 	"log"
 	"net/http"
+	"os"
 	"time"
 )
 
@@ -19,8 +21,10 @@ func main() {
 	topRouter.HandleFunc("/v1/health", healthHandler)
 	topRouter.HandleFunc("/health", healthHandler)
 
-	handler := recoverWrap(topRouter)
-	handler = authWrap(handler)
+	var handler http.Handler
+	handler = authWrap(topRouter)
+	handler = handlers.LoggingHandler(os.Stdout, handler)
+	handler = recoverWrap(handler)
 
 	srv := &http.Server{
 		Handler:      handler,
