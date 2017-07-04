@@ -17,7 +17,7 @@ Adding more types and providers is super simple!
 
 ### API
 
-Notify exposes a RESTful API. Details will be forthcoming in a JSON Schema document.
+Notify exposes a RESTful API. You can read about it in the [API Docs](https://davidbanham.github.io/notify)
 
 ### Quick Start
 
