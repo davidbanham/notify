@@ -98,6 +98,7 @@ func init() {
 	AwsSecretAccessKey = os.Getenv("AWS_SECRET_ACCESS_KEY")
 	AwsRegion = os.Getenv("AWS_REGION")
 	Testing = os.Getenv("TESTING")
+	AuthSecret = os.Getenv("AUTH_SECRET")
 
 	if EmailFromName == "" {
 		EmailFromName = EmailFrom
