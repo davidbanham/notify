@@ -18,12 +18,12 @@
       "properties": {
         "text": {
           "type": "string",
-          "example": "How's it going?",
+          "example": "How you doing?",
           "description": "The text body of your email. Used for non-html email clients."
         },
         "html": {
           "type": "string",
-          "example": "<img href='http://i.ytimg.com/vi/J---aiyznGQ/hqdefault.jpg' />",
+          "example": "Check this out <br> <img src=\"http://i.ytimg.com/vi/J---aiyznGQ/hqdefault.jpg\" alt=\"Logo\" title=\"Logo\" style=\"display:block\" width=\"200\" height=\"87\" />",
           "description": "The HTML body of your email. Used by marketing people."
         }
       }
