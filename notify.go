@@ -80,6 +80,7 @@ func healthHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func errRes(w http.ResponseWriter, code int, message string, err error) {
+	fmt.Println("Error", code, message, err)
 	resData := res{
 		Success: false,
 		Message: message,
