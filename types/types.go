@@ -26,3 +26,5 @@ type Namepair struct {
 	Address string `json:"address"`
 	Name    string `json:"name"`
 }
+
+type SMSSender func(SMS) error

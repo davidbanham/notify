@@ -25,11 +25,7 @@ func init() {
 
 	switch provider {
 	case "amazon":
-		err := amazon.Init()
-		if err != nil {
-			panic(err)
-		}
-		sender = amazon.Send
+		sender = amazon.SendFactory(amazon.Init())
 		return
 	case "test":
 		sender = test

@@ -17,7 +17,7 @@
     },
     "from": {
       "type": "string",
-      "example": "+61438000000",
+      "example": "61438000000",
       "description": "The number you're trying to send an sms from"
     }
   },
