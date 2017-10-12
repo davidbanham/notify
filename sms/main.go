@@ -25,6 +25,10 @@ func init() {
 
 	switch provider {
 	case "amazon":
+		err := amazon.Init()
+		if err != nil {
+			panic(err)
+		}
 		sender = amazon.Send
 		return
 	case "test":
