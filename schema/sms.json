@@ -7,7 +7,7 @@
   "definitions": {
     "body": {
       "type": "string",
-      "example": "How's it going?",
+      "example": "How is it going?",
       "description": "The text of your sms."
     },
     "to": {
