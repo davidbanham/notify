@@ -8,6 +8,8 @@ services:
       - AUTH_SECRET=loltestsecret
       - NOTIFY_EMAIL_FROM=test@example.com
       - NOTIFY_SMS_FROM=test
+      - NOTIFY_EMAIL_PROVIDER=amazon
+      - NOTIFY_SMS_PROVIDER=amazon
       - DISABLE_AUTH=true
     command: gin
     ports:

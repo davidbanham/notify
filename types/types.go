@@ -28,3 +28,4 @@ type Namepair struct {
 }
 
 type SMSSender func(SMS) error
+type EmailSender func(Email) error

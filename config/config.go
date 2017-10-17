@@ -67,6 +67,12 @@ func init() {
 			"NOTIFY_EMAIL_MANDRILL_KEY": "",
 			"NOTIFY_EMAIL_FROM":         "",
 		})
+	case "amazon":
+		required_env.Ensure(map[string]string{
+			"AWS_ACCESS_KEY_ID":     "",
+			"AWS_SECRET_ACCESS_KEY": "",
+			"AWS_REGION":            "",
+		})
 	case "test":
 		required_env.Ensure(map[string]string{
 			"NOTIFY_EMAIL_FROM": "",

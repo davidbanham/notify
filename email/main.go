@@ -3,6 +3,7 @@ package email
 import (
 	"errors"
 	"github.com/davidbanham/notify/config"
+	"github.com/davidbanham/notify/email/amazon"
 	"github.com/davidbanham/notify/email/gmail"
 	"github.com/davidbanham/notify/email/mandrill"
 	"github.com/davidbanham/notify/types"
@@ -17,6 +18,7 @@ func init() {
 	providers := map[string]bool{
 		"gmail":    true,
 		"mandrill": true,
+		"amazon":   true,
 		"none":     true,
 		"test":     true,
 	}
@@ -31,6 +33,9 @@ func init() {
 		return
 	case "mandrill":
 		sender = mandrill.Send
+		return
+	case "amazon":
+		sender = amazon.SendFactory(amazon.Init())
 		return
 	case "test":
 		sender = test
