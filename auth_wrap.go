@@ -8,6 +8,11 @@ import (
 
 func authWrap(h http.Handler) http.Handler {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		if r.RequestURI == "/v1/health" {
+			h.ServeHTTP(w, r)
+			return
+		}
+
 		if config.DisableAuth {
 			h.ServeHTTP(w, r)
 			return

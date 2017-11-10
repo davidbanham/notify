@@ -11,7 +11,7 @@ import (
 	"testing"
 )
 
-func TestOrganisationCreateOrUpdateHandler(t *testing.T) {
+func TestHealth(t *testing.T) {
 	t.Parallel()
 
 	req := &http.Request{
