@@ -2,6 +2,7 @@ package email
 
 import (
 	"errors"
+	"fmt"
 	"github.com/davidbanham/notify/config"
 	"github.com/davidbanham/notify/email/amazon"
 	"github.com/davidbanham/notify/email/gmail"
@@ -51,6 +52,14 @@ func invalid(e types.Email) error {
 }
 
 func test(e types.Email) error {
+	fmt.Println("Subject", e.Subject)
+	fmt.Println("From", e.From)
+	fmt.Println("To", e.To)
+	fmt.Println("Body", e.Body)
+	fmt.Println("Recieved email. Dropping it due to test route being configured.")
+	if e.To.Address == "" {
+		return errors.New("No address given to send email to")
+	}
 	return nil
 }
 
